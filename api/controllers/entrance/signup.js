@@ -68,7 +68,7 @@ the account verification message.)`,
 
     // Build up data for the new user record and save it to the database.
     // (Also use `fetch` to retrieve the new ID so that we can use it below.)
-    var newUserRecord = await User.create(Object.assign({
+    var newUserRecord = await AclUsers.create(Object.assign({
       emailAddress: newEmailAddress,
       password: await sails.helpers.passwords.hashPassword(inputs.password),
       fullName: inputs.fullName,
@@ -82,16 +82,6 @@ the account verification message.)`,
     .intercept({name: 'UsageError'}, 'invalid')
     .fetch();
 
-    // If billing feaures are enabled, save a new customer entry in the Stripe API.
-    // Then persist the Stripe customer id in the database.
-    if (sails.config.custom.enableBillingFeatures) {
-      let stripeCustomerId = await sails.helpers.stripe.saveBillingInfo.with({
-        emailAddress: newEmailAddress
-      });
-      await User.update(newUserRecord.id).set({
-        stripeCustomerId
-      });
-    }
 
     // Store the user's new id in their session.
     this.req.session.userId = newUserRecord.id;

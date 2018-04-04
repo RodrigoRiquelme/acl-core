@@ -14,7 +14,7 @@ module.exports.routes = {
   //  ╦ ╦╔═╗╔╗ ╔═╗╔═╗╔═╗╔═╗╔═╗
   //  ║║║║╣ ╠╩╗╠═╝╠═╣║ ╦║╣ ╚═╗
   //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
-  'GET /':                   { action: 'view-homepage-or-redirect' },
+  'GET /':                   { action: 'home/view-homepage-or-redirect' },
   'GET /welcome':            { action: 'dashboard/view-welcome' },
 
   'GET /faq':                { view:   'pages/faq' },
@@ -33,7 +33,7 @@ module.exports.routes = {
   'GET /account':            { action: 'account/view-account-overview' },
   'GET /account/password':   { action: 'account/view-edit-password' },
   'GET /account/profile':    { action: 'account/view-edit-profile' },
-
+  'GET /users/profile':      { action: 'account/view-edit-profile' },
 
   //  ╔═╗╔═╗╦  ╔═╗╔╗╔╔╦╗╔═╗╔═╗╦╔╗╔╔╦╗╔═╗
   //  ╠═╣╠═╝║  ║╣ ║║║ ║║╠═╝║ ║║║║║ ║ ╚═╗
@@ -48,7 +48,9 @@ module.exports.routes = {
   'POST  /api/v1/entrance/signup':                       { action: 'entrance/signup' },
   'POST  /api/v1/entrance/send-password-recovery-email': { action: 'entrance/send-password-recovery-email' },
   'POST  /api/v1/entrance/update-password-and-login':    { action: 'entrance/update-password-and-login' },
-  'POST  /api/v1/deliver-contact-form-message':          { action: 'deliver-contact-form-message' },
+  'POST  /api/v1/deliver-contact-form-message':          { action: 'home/deliver-contact-form-message' },
+  '/users/aclgroups':   { action: 'AclGroupsController' },
+  '/hola':   { action: 'HolaController' },
 
 
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗

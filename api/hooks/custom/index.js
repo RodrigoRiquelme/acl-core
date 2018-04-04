@@ -158,7 +158,7 @@ will be disabled and/or hidden in the UI.
             if (!req.session.userId) { return next(); }
 
             // Otherwise, look up the logged-in user.
-            var loggedInUser = await User.findOne({
+            var loggedInUser = await AclUsers.findOne({
               id: req.session.userId
             });
 
@@ -191,7 +191,7 @@ will be disabled and/or hidden in the UI.
             var MS_TO_BUFFER = 60*1000;
             var now = Date.now();
             if (loggedInUser.lastSeenAt < now - MS_TO_BUFFER) {
-              User.update({id: loggedInUser.id})
+              AclUsers.update({id: loggedInUser.id})
               .set({ lastSeenAt: now })
               .exec((err)=>{
                 if (err) {

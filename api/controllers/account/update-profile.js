@@ -60,7 +60,7 @@ module.exports = {
 
     // If the email address is changing, make sure it is not already being used.
     if (_.contains(['beginChange', 'changeImmediately', 'modifyPendingChange'], desiredEffectReEmail)) {
-      let conflictingUser = await User.findOne({
+      let conflictingUser = await AclUsers.findOne({
         or: [
           { emailAddress: newEmailAddress },
           { emailChangeCandidate: newEmailAddress }
@@ -116,7 +116,7 @@ module.exports = {
     }
 
     // Save to the db
-    await User.update({id: this.req.me.id }).set(valuesToSet);
+    await AclUsers.update({id: this.req.me.id }).set(valuesToSet);
 
     // If this is an immediate change, and billing features are enabled,
     // then also update the billing email for this user's linked customer entry
@@ -132,7 +132,7 @@ module.exports = {
         emailAddress: newEmailAddress
       });
       if (didNotAlreadyHaveCustomerId){
-        await User.update({ id: this.req.me.id }).set({
+        await AclUsers.update({ id: this.req.me.id }).set({
           stripeCustomerId
         });
       }

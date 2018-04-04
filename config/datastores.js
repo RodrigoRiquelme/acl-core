@@ -49,7 +49,7 @@ module.exports.datastores = {
     *                                                                          *
     ***************************************************************************/
     adapter: 'sails-mysql',
-    url: 'mysql://weichan_user:weichan_pass@localhost:3306/weichan',
+    url: 'mysql://weichan_user:weichan_pass@localhost:3306/weichan_tangerine',
 
   },
 

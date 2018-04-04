@@ -1,12 +1,12 @@
 /**
- * AclGroups.js
+ * AclResources.js
  *
  * @description :: A model definition.  Represents a database table/collection/etc.
  * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
  */
 
 module.exports = {
-  tableName: 'aclGroups',
+  tableName: 'aclResources',
 
   //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
   //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
@@ -17,13 +17,14 @@ module.exports = {
       type: 'string',
       required: true,
     },
+    type: {
+      type: 'string',
+      required: true,
+    },
     description: {
       type: 'string'
     },
-    approved: {
-      type: 'string',
-      isIn: ['0', '1']
-    }
   },
+
 };
 
