@@ -18,7 +18,7 @@ module.exports = {
   },
 
 
-  fn: async function (inputs, exits) {
+  fn: async function (inputs) {
 
     // Hash the new password.
     var hashed = await sails.helpers.passwords.hashPassword(inputs.password);

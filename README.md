@@ -1,4 +1,4 @@
-# weichan-game-back
+# acl-core
 
 a [Sails v1](https://sailsjs.com) application
 

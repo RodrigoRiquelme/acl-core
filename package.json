@@ -1,5 +1,5 @@
 {
-  "name": "weichan-game-back",
+  "name": "acl-core",
   "private": true,
   "version": "0.0.0",
   "description": "a Sails application",
@@ -8,6 +8,7 @@
     "@sailshq/connect-redis": "^3.2.1",
     "@sailshq/lodash": "^3.10.2",
     "@sailshq/socket.io-redis": "^5.2.0",
+    "admin-lte": "^2.4.3",
     "async": "2.0.1",
     "sails": "^1.0.0",
     "sails-hook-apianalytics": "^2.0.0",
